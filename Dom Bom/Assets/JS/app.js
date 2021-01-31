@@ -73,6 +73,23 @@ function addNewTask(e) {
        //disable form submission
 }
 
+filter.addEventListener('keyup', () => {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("filter");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("lis");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i];
+        txtValue = a.textContent || a.innerText;
+        console.log(txtValue)
+        if (txtValue.toUpperCase().indexOf(filter) != -1) {
+            li[i].style.display = "block";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+})
 
 // Clear Task Function definition 
 function clearAllTasks() {
@@ -164,6 +181,5 @@ function sortDescend() {
 		}
 	}
 }
-
 
 
