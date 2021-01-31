@@ -53,13 +53,19 @@ function addNewTask(e) {
     li.appendChild(document.createTextNode(taskInput.value));
     // Create new element for the link 
     const link = document.createElement('a');
+    const date = document.createElement('a');
     // Add class and the x marker for a 
     link.className = 'delete-item secondary-content';
+    date.className = 'date';
+    date.innerHTML = new Date()
     link.innerHTML = '<i class="fa fa-remove"></i>';
     // Append link to li
     li.appendChild(link);
+    li.appendChild(date);
     // Append to ul 
     taskList.appendChild(li);
+
+    taskInput.value = ''
 
 
 
@@ -92,22 +98,24 @@ function removeTask(e) {
     }
 
 }
-console.log(e.target);
 
 function reloadPage() {
     //using the reload fun on location object 
     location.reload();
 }
 function sortAscend() {
-    var contain;
+    var containi;
     var index;
     var content;
     var Switchs;
-    contain = document.getElementsByClassName('lis');
+    var maybe;
+    containi = document.getElementById('lis');
+    maybe = true
 	
 
-	while (true) {
-		content = list.getElementsByTagName('li');
+	while (maybe) {
+        content = containi.getElementsByTagName('LI');
+        maybe = false
 
 		for (index = 0; index < content.length - 1; index++) {
 			Switchs = false;
@@ -118,21 +126,27 @@ function sortAscend() {
 			}
 		}
 		if (Switchs) {
-			content[i].parentNode.insertBefore(b[i + 1], b[i]);
+            content[index].parentNode.insertBefore(content[index + 1], content[index]);
+            maybe = true
+            
 
 		}
 	}
 }
 function sortDescend() {
-    var contain;
+    var containi;
     var index;
     var content;
     var Switchs;
-    contain = document.getElementsById('c');
+    var maybe;
+    containi = document.getElementById('lis');
+
+    maybe = true
 	
 
-	while (true) {
-		content = list.getElementsByTagName('li');
+	while (maybe) {
+        content = containi.getElementsByTagName('li');
+        maybe = false
 
 		for (index = 0; index < content.length - 1; index++) {
 			Switchs = false;
@@ -143,7 +157,9 @@ function sortDescend() {
 			}
 		}
 		if (Switchs) {
-			content[i].parentNode.insertBefore(b[i + 1], b[i]);
+            content[index].parentNode.insertBefore(content[index + 1], content[index]);
+            maybe = true
+            
 
 		}
 	}
