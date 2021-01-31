@@ -9,6 +9,8 @@ const taskList = document.querySelector('.collection');          //The ul
 
 const clearBtn = document.querySelector('.clear-tasks');      //the all task clear button
 
+const reloadIcon = document.querySelector('.fa'); //the reload button at the top navigation 
+
 // Events
 form.addEventListener('submit', addNewTask);
 clearBtn.addEventListener("click",clearAllTasks);
@@ -92,7 +94,60 @@ function removeTask(e) {
 }
 console.log(e.target);
 
+function reloadPage() {
+    //using the reload fun on location object 
+    location.reload();
+}
+function sortAscend() {
+    var contain;
+    var index;
+    var content;
+    var Switchs;
+    contain = document.getElementsByClassName('lis');
+	
 
+	while (true) {
+		content = list.getElementsByTagName('li');
+
+		for (index = 0; index < content.length - 1; index++) {
+			Switchs = false;
+
+			if (content[index].lastChild.textContent > content[index + 1].lastChild.textContent) {
+				Switchs = true;
+				break;
+			}
+		}
+		if (Switchs) {
+			content[i].parentNode.insertBefore(b[i + 1], b[i]);
+
+		}
+	}
+}
+function sortDescend() {
+    var contain;
+    var index;
+    var content;
+    var Switchs;
+    contain = document.getElementsById('c');
+	
+
+	while (true) {
+		content = list.getElementsByTagName('li');
+
+		for (index = 0; index < content.length - 1; index++) {
+			Switchs = false;
+
+			if (content[index].lastChild.textContent < content[index + 1].lastChild.textContent) {
+				Switchs = true;
+				break;
+			}
+		}
+		if (Switchs) {
+			content[i].parentNode.insertBefore(b[i + 1], b[i]);
+
+		}
+	}
+}
 
 
 

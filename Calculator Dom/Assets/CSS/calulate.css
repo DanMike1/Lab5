@@ -1,0 +1,29 @@
+body{
+    background-color:lightslategrey;
+}
+.btn{
+    font-size: 30px;
+    margin: 3px;
+    padding: 10px;
+    width: 99px;
+    height: 90px;
+    border-radius: 0px !important;
+    border: none;
+
+}
+
+#tinput{
+    border: none;
+    border-bottom: 1.5px solid dimgrey;
+    width: 440px;
+    height: 100px;
+    background-color: aliceblue;
+    font-size: 30px;
+   
+    
+}
+
+.card-body{
+    justify-content: end;
+    background-color:dimgrey;
+}
